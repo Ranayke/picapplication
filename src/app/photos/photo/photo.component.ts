@@ -12,7 +12,7 @@ export class PhotoComponent {
 
     @Input() title = '';
 
-    @Input() description='';
+    @Input() description = '';
 
     @Input() set url(url: string) {
         if(!url.startsWith('data')) {
