@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Photo } from 'src/utils/interfaces/photo.Interface';
 import { PhotoService } from '../photo/photo.service';
+import { LoadingService } from 'src/app/shared/components/loading/loading.service';
 
 @Component({
   selector: 'app-photo-list',
@@ -16,7 +17,7 @@ export class PhotoListComponent implements OnInit {
   hasMore: boolean = true;
   currentPage: number = 1;
   userName: string = '';
-  
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private photoService: PhotoService
