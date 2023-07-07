@@ -6,18 +6,24 @@ import { SignInComponent } from './signin/signin.component';
 import { SignUpComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: HomeComponent,
     canActivate: [LoginGuard],
     children: [
-      { 
-        path: '', 
-        component: SignInComponent
+      {
+        path: '',
+        component: SignInComponent,
+        data: {
+          title: 'Sign in'
+        }
       },
-      { 
-        path: 'signup', 
-        component: SignUpComponent
+      {
+        path: 'signup',
+        component: SignUpComponent,
+        data: {
+          title: 'Sign up'
+        }
       }
     ]
   }

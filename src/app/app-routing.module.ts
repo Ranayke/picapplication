@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
@@ -13,33 +14,42 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'home'
   },
-  { 
+  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
-  { 
-    path: 'user/:userName', 
-    component: PhotoListComponent, 
+  {
+    path: 'user/:userName',
+    component: PhotoListComponent,
     resolve: {
       photos: PhotoListResolver
-    } 
+    }, data: {
+      Title: 'Timeline'
+    }
   },
-  { 
-    path: 'p/add', 
-    component: PhotoFormComponent, 
-    canActivate: [AuthGuard]
+  {
+    path: 'p/add',
+    component: PhotoFormComponent,
+    canActivate: [AuthGuard], data: {
+      title: 'Photo upload'
+    }
   },
-  { 
-    path: 'p/:photoId', 
+  {
+    path: 'p/:photoId',
     component: PhotoDetailsComponent,
-    
+    data: {
+      title: 'Photo detail'
+    }
   },
-  { 
-    path: 'not-found', 
-    component: NotFoundComponent 
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+    data: {
+      title: 'Not found'
+    }
   },
-  { 
-    path: '**', 
+  {
+    path: '**',
     redirectTo: 'not-found'
   },
 ];
