@@ -24,14 +24,16 @@ const routes: Routes = [
     component: PhotoListComponent,
     resolve: {
       photos: PhotoListResolver
-    }, data: {
-      Title: 'Timeline'
+    },
+    data: {
+      title: 'Timeline'
     }
   },
   {
     path: 'p/add',
     component: PhotoFormComponent,
-    canActivate: [AuthGuard], data: {
+    canActivate: [AuthGuard],
+    data: {
       title: 'Photo upload'
     }
   },
